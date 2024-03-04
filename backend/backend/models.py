@@ -1,8 +1,10 @@
 from django.db import models
+from django.db.models.signals import pre_save
+from django.dispatch import receiver
 
 # Employee Table
 class Employee(models.Model):
-    employee_num = models.IntegerField(unique=True)
+    employee_num = models.AutoField(primary_key=True)
     first_name = models.CharField(max_length=50)
     middle_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
@@ -14,6 +16,16 @@ class Employee(models.Model):
 
     def __str__(self):
         return str(self.employee_num)
+    
+@receiver(pre_save, sender=Employee)
+def set_employee_num(sender, instance, **kwargs):
+    if instance.employee_num is None:
+        # Auto increment starting from 101
+        last_employee = Employee.objects.order_by('-employee_num').first()
+        if last_employee:
+            instance.employee_num = last_employee.employee_num + 1
+        else:
+            instance.employee_num = 101
 
 # Department Table
 class Department(models.Model):
@@ -34,7 +46,7 @@ class JobDesignation(models.Model):
 
 # EmployeeDesignation Table
 class EmployeeDesignation(models.Model):
-    employee_number = models.ForeignKey(Employee, on_delete=models.CASCADE, to_field='employee_num')
+    employee_number = models.ForeignKey(Employee, on_delete=models.CASCADE)
     designation_id = models.ForeignKey(JobDesignation, on_delete=models.CASCADE)
     
     TYPE_CHOICES = [
