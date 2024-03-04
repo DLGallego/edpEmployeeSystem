@@ -17,9 +17,9 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <header> Employee Database </header>
-        <hr></hr>
+      <div id="Body">
+        <div id="header"><h1>EMPLOYEE DATABASE</h1></div>
+        <div class="spacer"></div>
         <table>
           <thead>
             <tr>
@@ -43,7 +43,7 @@ class App extends React.Component {
           <tbody>
             {this.state.details.map((output, id) => (
               <tr key={id}>
-                <td>{output.employee_number.employee_num}</td>
+                <td class="tableStart">{output.employee_number.employee_num}</td>
                 <td>{output.employee_number.first_name}</td>
                 <td>{output.employee_number.middle_name}</td>
                 <td>{output.employee_number.last_name}</td>
@@ -57,7 +57,7 @@ class App extends React.Component {
                 <td>{output.designation_id.department_id.department_name}</td>
                 <td>{output.designation_id.department_id.active_status ? 'Active' : 'Inactive'}</td>
                 <td>{output.employee_type}</td>
-                <td>{output.status}</td>
+                <td class="tableEnd">{output.status}</td>
               </tr>
             ))}
           </tbody>
