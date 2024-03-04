@@ -1,5 +1,5 @@
 from django.contrib import admin
-from backend.models import Department, Employee, JobDesignation, EmployeeDesignation
+from backend.models import *
 
 class EmployeeAdmin(admin.ModelAdmin):
     pass

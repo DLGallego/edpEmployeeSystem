@@ -1,15 +1,15 @@
 from backend import serialize
-from backend.models import Employee, Department, JobDesignation, EmployeeDesignation
-from backend.serialize import EmployeeSerializer, DepartmentSerializer, JobSerializer, EdSerializer
+from backend.models import *
+from backend.serialize import *
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
 #Employee
 class EmployeeTable(APIView):
-    def get(self,request):
-        empObjs = Employee.objects.all()
-        dlSerializedObj = EmployeeSerializer(empObjs,many=True)
-        return Response(dlSerializedObj.data)
+    def get(self, request):
+        employees = Employee.objects.all()
+        serializer = EmployeeSerializer(employees, many=True)
+        return Response(serializer.data)
     
     def post(self,request):
         serializeobj = EmployeeSerializer(data=request.data)
@@ -80,11 +80,11 @@ class DepartmentDelete(APIView):
 class JobTable(APIView):
     def get(self,request):
         jobObjs = JobDesignation.objects.all()
-        dlSerializedObj = JobSerializer(jobObjs,many=True)
+        dlSerializedObj = JobDesignationSerializer(jobObjs,many=True)
         return Response(dlSerializedObj.data)
     
     def post(self,request):
-        serializeobj = JobSerializer(data=request.data)
+        serializeobj = JobDesignationSerializer(data=request.data)
         if serializeobj.is_valid():
             serializeobj.save()
             return Response(200)
@@ -97,7 +97,7 @@ class JobUpdate(APIView):
         except:
             return Response("Job not found in Database")
 
-        serializeobj = JobSerializer(jobObj,data=request.data)
+        serializeobj = JobDesignationSerializer(jobObj,data=request.data)
         if serializeobj.is_valid():
             serializeobj.save()
             return Response(200)
@@ -113,33 +113,35 @@ class JobDelete(APIView):
         return Response(200)
     
 #EmployeeDesignation
-class EdTable(APIView):
-    def get(self,request):
-        EdObjs = EmployeeDesignation.objects.all()
-        dlSerializedObj = JobSerializer(EdObjs,many=True)
-        return Response(dlSerializedObj.data)
+class EmployeeDesignationTable(APIView):
+    def get(self, request):
+        employee_designations = EmployeeDesignation.objects.select_related(
+            'employee_number', 'designation_id__department_id'
+        ).all()
+        serializer = EmployeeDesignationSerializer(employee_designations, many=True)
+        return Response(serializer.data)
     
     def post(self,request):
-        serializeobj = EdSerializer(data=request.data)
+        serializeobj = EmployeeDesignationSerializer(data=request.data)
         if serializeobj.is_valid():
             serializeobj.save()
             return Response(200)
         return Response(serializeobj.errors)
     
-class EdUpdate(APIView):
+class EmployeeDesignationUpdate(APIView):
     def post(self,request,pk):
         try:
             edObj = EmployeeDesignation.objects.get(pk=pk)
         except:
             return Response("Designation not found in Database")
 
-        serializeobj = EdSerializer(edObj,data=request.data)
+        serializeobj = EmployeeDesignationSerializer(edObj,data=request.data)
         if serializeobj.is_valid():
             serializeobj.save()
             return Response(200)
         return Response(serializeobj.errors)
     
-class EdDelete(APIView):
+class EmployeeDesignationDelete(APIView):
     def post(self,request,pk):
         try:
             edObj = EmployeeDesignation.objects.get(pk=pk)
