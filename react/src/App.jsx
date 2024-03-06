@@ -1,11 +1,17 @@
 import axios from 'axios';
 import React from 'react';
+import Button from './components/Button';
+import Form from './components/Form';
 
 class App extends React.Component {
 
   state = { details: [], }
 
   componentDidMount() {
+    this.fetchData();
+  }
+
+  fetchData = () => {
     axios.get('http://localhost:8000')
       .then(res => {
         this.setState({
@@ -19,6 +25,11 @@ class App extends React.Component {
     return (
       <div id="Body">
         <div id="header"><h1>EMPLOYEE DATABASE</h1></div>
+        <div class="spacer"></div>
+        <div class="spacer"></div>
+        <div id="refresh">
+          <Button onClick={this.fetchData}/>
+        </div>
         <div class="spacer"></div>
         <table>
           <thead>
@@ -62,6 +73,16 @@ class App extends React.Component {
             ))}
           </tbody>
         </table>
+        <div class="spacer"></div>
+        <div class="spacer"></div>
+        <div id="addEmployee">
+          <div class="spacer"></div>
+          <div >
+            <Form/>
+          </div>
+          <div class="spacer"></div>
+        </div>
+        <div class="spacer"></div>
       </div>
     )
   }
