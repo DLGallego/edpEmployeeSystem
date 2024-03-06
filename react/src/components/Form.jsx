@@ -37,6 +37,7 @@ const EmployeeForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
+
         <div class="column">
             <div class="labels">
                 <label>First Name:</label>
@@ -52,13 +53,9 @@ const EmployeeForm = () => {
 
             <div class="formField">
                 <input type="text" name="firstName" value={formData.firstName} onChange={handleInputChange} />
-                <br/>
                 <input type="text" name="middleName" value={formData.middleName} onChange={handleInputChange} />
-                <br/>
                 <input type="text" name="middleName" value={formData.middleName} onChange={handleInputChange} />
-                <br/>
                 <input type="text" name="address" value={formData.address} onChange={handleInputChange} />  
-                <br/>
                 <input type="text" name="barangay" value={formData.barangay} onChange={handleInputChange} />
             </div>
         </div>
@@ -78,15 +75,11 @@ const EmployeeForm = () => {
 
             <div class="formField">
                 <input type="text" name="province" value={formData.province} onChange={handleInputChange} />
-                <br/>
                 <input type="text" name="country" value={formData.country} onChange={handleInputChange} />
-                <br/>
                 <input type="text" name="zipcode" value={formData.zipcode} onChange={handleInputChange} />
-                <br/>
                 <input type="text" name="jobDesignation" value={formData.jobDesignation} onChange={handleInputChange} />
-                <br/>
                 <label>
-                    <input type="checkbox" name="jobStatus" checked={formData.jobStatus} onChange={(e) => setFormData({ ...formData, jobStatus: e.target.checked })} />
+                    <input id="checkBox" type="checkbox" name="jobStatus" checked={formData.jobStatus} onChange={(e) => setFormData({ ...formData, jobStatus: e.target.checked })} />
                     Active
                 </label>
             </div>
@@ -103,13 +96,11 @@ const EmployeeForm = () => {
 
             <div class="formField">
                 <input type="text" name="department" value={formData.department} onChange={handleInputChange} />
-                <br/>
                 <input type="text" name="employeeType" value={formData.employeeType} onChange={handleInputChange} />
-                <br/>
                 <input type="text" name="employeeStatus" value={formData.employeeStatus} onChange={handleInputChange} />
                 <br/>
                 <br/>
-                <button type="submit">Submit</button>
+                <button id="formButton" type="submit">Submit</button>
             </div>
         </div>
     </form>

@@ -14,5 +14,27 @@ form {
 
 .formField {
     width: 50%;
-    align-items: end;
+}
+
+input {
+    width: 100%;
+    font-family: 'Poppins';
+    margin-bottom: 0.5vw;
+}
+
+#checkBox {
+    width: auto;
+}
+
+label {
+    font-family: 'Jomhuria';
+    font-size: 2vw;
+    line-height: 2.15vw;
+}
+
+#formButton {
+    border-radius: 5px;
+    font-family: 'Poppins';
+    border: solid 1px black;
+    margin-left: 75%;
 }
