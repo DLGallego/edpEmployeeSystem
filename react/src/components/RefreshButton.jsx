@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Button = ({ onClick }) => {
+const RefreshButton = ({ onClick }) => {
   return (
     <button onClick={onClick} style={{ cursor: 'pointer' }}>
       Refresh Table
@@ -8,4 +8,4 @@ const Button = ({ onClick }) => {
   );
 };
 
-export default Button;
+export default RefreshButton;

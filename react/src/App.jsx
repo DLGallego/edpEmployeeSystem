@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React from 'react';
-import Button from './components/Button';
+import RefreshButton from './components/RefreshButton';
 import Form from './components/Form';
 
 class App extends React.Component {
@@ -28,7 +28,7 @@ class App extends React.Component {
         <div class="spacer"></div>
         <div class="spacer"></div>
         <div id="refresh">
-          <Button onClick={this.fetchData}/>
+          <RefreshButton onClick={this.fetchData}/>
         </div>
         <div class="spacer"></div>
         <table>
@@ -76,7 +76,6 @@ class App extends React.Component {
         <div class="spacer"></div>
         <div class="spacer"></div>
         <div id="addEmployee">
-          <div class="spacer"></div>
           <div >
             <Form/>
           </div>
