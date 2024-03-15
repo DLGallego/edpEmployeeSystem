@@ -1,11 +1,13 @@
 import axios from 'axios';
 import React from 'react';
 import RefreshButton from './components/RefreshButton';
-import Form from './components/Form';
+import EmployeeForm from './components/EmployeeForm';
 
 class App extends React.Component {
 
-  state = { details: [], }
+  state = {
+    details: [],
+  }
 
   componentDidMount() {
     this.fetchData();
@@ -28,7 +30,7 @@ class App extends React.Component {
         <div class="spacer"></div>
         <div class="spacer"></div>
         <div id="refresh">
-          <RefreshButton onClick={this.fetchData}/>
+          <RefreshButton onClick={this.fetchData} />
         </div>
         <div class="spacer"></div>
         <table>
@@ -76,8 +78,8 @@ class App extends React.Component {
         <div class="spacer"></div>
         <div class="spacer"></div>
         <div id="addEmployee">
-          <div >
-            <Form/>
+          <div>
+            <EmployeeForm/>
           </div>
           <div class="spacer"></div>
         </div>

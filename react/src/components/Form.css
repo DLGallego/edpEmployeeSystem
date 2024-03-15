@@ -1,6 +1,14 @@
-#formBody {
+#body {
     display: flex;
     flex-direction: column;
+    font-family: 'Jomhuria';
+    font-size: 3vw;
+    line-height: 3vw;
+}
+
+#formBody {
+    display: flex;
+    justify-content: space-between;
 }
 
 #formBody h1 {
@@ -14,23 +22,27 @@ form {
     justify-content: space-between;
 }
 
+.field {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+}
+
 .column {
     display: flex;
+    flex-direction: column;
     width: 30%;
 }
 
-.labels {
-    width: 50%;
-}
-
-.formField {
-    width: 50%;
-}
-
 input {
-    width: 100%;
+    width: 60%;
     font-family: 'Poppins';
     margin-bottom: 0.5vw;
+}
+
+select {
+    width: 60%;
+    font-family: 'Poppins';
 }
 
 #jobStatusField {
@@ -46,18 +58,23 @@ input {
 label {
     font-family: 'Jomhuria';
     font-size: 2vw;
-    line-height: 2.15vw;
+    line-height: 2vw;
 }
 
-#formButton {
+.formButton {
+    height: min-content;
     border-radius: 5px;
     font-family: 'Poppins';
     border: solid 1px black;
-    margin-left: 75%;
+    margin-inline: 0.2vw;
 }
 
-select {
-    width: 104%;
-    font-family: 'Poppins';
-    margin-bottom: 0.5vw;
+#editField {
+    display: flex;
+    width: 70%;
+    justify-content: space-between;
+}
+
+#editField input {
+    width: 30%;
 }
