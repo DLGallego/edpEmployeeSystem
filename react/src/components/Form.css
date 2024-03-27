@@ -4,6 +4,7 @@
     font-family: 'Jomhuria';
     font-size: 3vw;
     line-height: 3vw;
+    width: 95%;
 }
 
 #formBody {
@@ -25,6 +26,7 @@ form {
 .field {
     display: flex;
     justify-content: space-between;
+    gap: 10px;
     align-content: center;
 }
 
@@ -67,14 +69,31 @@ label {
     font-family: 'Poppins';
     border: solid 1px black;
     margin-inline: 0.2vw;
+    cursor: pointer;
 }
 
 #editField {
     display: flex;
-    width: 70%;
+    width: 98%;
+    gap: 2px;
     justify-content: space-between;
 }
 
 #editField input {
     width: 30%;
+}
+
+.sign-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: left;
+    width: 90%;
+    padding-left: 40px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
 }

@@ -242,12 +242,11 @@ const EmployeeForm = () => {
                         <div id="editField">
                             <label>Employee#:</label>
                             <input type="text" name="employeeID" value={formData.employeeID} onChange={handleInputChange}/>
-                            <button className="formButton" onClick={handleEditEmployee} style={{ cursor: 'pointer' }}>Edit</button>
-                            <button className="formButton" onClick={handleDeleteEmployee} style={{ cursor: 'pointer' }}>Delete</button>
+                            <button className="formButton" onClick={handleEditEmployee}>Edit</button>
+                            <button className="formButton" onClick={handleDeleteEmployee}>Delete</button>
                         </div>
-                        <button className="formButton" onClick={handleAddEmployee} style={{ cursor: 'pointer' }}>Add</button>
+                        <button className="formButton" onClick={handleAddEmployee}>Add</button>
                     </div>
-                     
                 </div>
             </div>
         </div>

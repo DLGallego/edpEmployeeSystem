@@ -97,7 +97,12 @@ td {
   height: 2vw;
 }
 
-#addEmployee {
+.addEmployee {
   width: 95%;
   border-block: solid 1px black;
+}
+
+.sign-container {
+  display: flex;
+  
 }

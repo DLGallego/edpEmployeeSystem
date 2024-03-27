@@ -2,6 +2,8 @@ import axios from 'axios';
 import React from 'react';
 import RefreshButton from './components/RefreshButton';
 import EmployeeForm from './components/EmployeeForm';
+import Signatories from './components/Signatories';
+import Leave from './components/Leave';
 
 class App extends React.Component {
 
@@ -77,12 +79,50 @@ class App extends React.Component {
         </table>
         <div class="spacer"></div>
         <div class="spacer"></div>
-        <div id="addEmployee">
+        <div class="addEmployee">
           <div>
-            <EmployeeForm/>
+            <EmployeeForm />
           </div>
           <div class="spacer"></div>
+          <div class="spacer"></div>
         </div>
+        <div class="spacer"></div>
+        <table>
+          <thead>
+            <tr>
+              <th>Employee ID</th>
+              <th>Start Leave</th>
+              <th>End Leave</th>
+              <th>Leave Type</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+        </table>
+        <div class="spacer"></div>
+        <div class="spacer"></div>
+        <div class='addEmployee'>
+          <Leave/>
+          <div class="spacer"></div>
+          <div class="spacer"></div>
+        </div>
+        <div class="spacer"></div>
+        <table>
+          <thead>
+            <tr>
+              <th>Employee ID</th>
+              <th>Higher Superior</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+        </table>
+        <div class="spacer"></div>
+        <div class="spacer"></div>
+        <div class='addEmployee'>
+          <Signatories/>
+          <div class="spacer"></div>
+          <div class="spacer"></div>
+        </div>
+        <div class="spacer"></div>
         <div class="spacer"></div>
       </div>
     )
